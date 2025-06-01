@@ -3,6 +3,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+import sys
 
 def main():
     print("Starting Asteroids!")
@@ -34,7 +35,13 @@ def main():
         screen.fill("black")
         for d in drawable:
             d.draw(screen)
+        
         updatable.update(dt)
+
+        for a in asteroids:
+            if a.detectcoll(player):
+                print("Game over!")
+                sys.exit(0)
         pygame.display.flip()
         time_passed = clock.tick(60)
         dt = time_passed / 1000
