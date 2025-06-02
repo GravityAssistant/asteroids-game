@@ -45,6 +45,10 @@ def main():
             if a.detectcoll(player):
                 print("Game over!")
                 sys.exit(0)
+            for s in shots:
+                if a.detectcoll(s):
+                    a.kill()
+                    s.kill()
         pygame.display.flip()
         time_passed = clock.tick(60)
         dt = time_passed / 1000
