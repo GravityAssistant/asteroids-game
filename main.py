@@ -47,7 +47,7 @@ def main():
                 sys.exit(0)
             for s in shots:
                 if a.detectcoll(s):
-                    a.kill()
+                    a.split()
                     s.kill()
         pygame.display.flip()
         time_passed = clock.tick(60)
